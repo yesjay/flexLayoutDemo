@@ -1,0 +1,187 @@
+@mixin blockSet($length) {
+  width: $length*2;
+  height: $length;
+  line-height: $length+30px;
+}
+
+@mixin flexBox($flexGrow, $height: 100px) {
+  height: $height;
+  line-height: $height;
+  flex: $flexGrow;
+}
+
+.mat-card {
+  margin: 10px 0;
+}
+
+.flex-container {
+  width: 75%;
+  margin: auto;
+  display: flex;
+  background-color: lightblue;
+
+  &.row-wrap {
+    flex-flow: row wrap;
+    height: 500px;
+  }
+  // direction
+  &.directionType--column {
+    flex-direction: column;
+  }
+  &.directionType--column-reverse {
+    flex-direction: column-reverse;
+  }
+  &.directionType--row {
+    flex-direction: row;
+  }
+  &.directionType--row-reverse {
+    flex-direction: row-reverse;
+  }
+  // wrap
+  &.wrapType--nowrap {
+    flex-wrap: nowrap;
+  }
+  &.wrapType--wrap {
+    flex-wrap: wrap;
+  }
+  &.wrapType--wrap-reverse {
+    flex-wrap: wrap-reverse;
+  }
+
+  // justify-content
+  &.justifyContentType--flex-start {
+    justify-content: flex-start;
+  }
+  &.justifyContentType--flex-end {
+    justify-content: flex-end;
+  }
+  &.justifyContentType--center {
+    justify-content: center;
+  }
+  &.justifyContentType--space-between {
+    justify-content: space-between;
+  }
+  &.justifyContentType--space-around {
+    justify-content: space-around;
+  }
+
+  // align-items
+  &.alignItemsType--center {
+    align-items: center;
+  }
+  &.alignItemsType--flex-start {
+    align-items: flex-start;
+  }
+  &.alignItemsType--flex-end {
+    align-items: flex-end;
+  }
+  &.alignItemsType--stretch {
+    align-items: stretch;
+  }
+  &.alignItemsType--baseline {
+    align-items: baseline;
+  }
+
+  // align-content
+  &.alignContentType--flex-start {
+    align-content: flex-start;
+  }
+  &.alignContentType--flex-end {
+    align-content: flex-end;
+  }
+  &.alignContentType--center {
+    align-content: center;
+  }
+  &.alignContentType--space-between {
+    align-content: space-between;
+  }
+  &.alignContentType--space-around {
+    align-content: space-around;
+  }
+  &.alignContentType--stretch {
+    align-content: stretch;
+  }
+
+  div {
+    margin: 10px;
+    text-align: center;
+    font-size: 30px;
+    background-color: #aaa;
+    &.block-base {
+      @include blockSet(150px);
+    }
+    &.block-one {
+      @include blockSet(200px);
+    }
+    &.block-two {
+      @include blockSet(100px);
+    }
+    &.block-three {
+      @include blockSet(150px);
+    }
+    &.block-four {
+      @include blockSet(50px);
+    }
+    &.block-five {
+      @include blockSet(150px);
+    }
+    &.block-six {
+      @include blockSet(200px);
+    }
+    &.block-seven {
+      @include blockSet(50px);
+    }
+    &.block-eight {
+      @include blockSet(100px);
+    }
+
+    // inside element
+    &.flex-1 {
+      @include flexBox(1);
+    }
+    &.flex-2 {
+      @include flexBox(2);
+    }
+    &.flex-3 {
+      @include flexBox(3);
+    }
+
+    &.height-1 {
+      @include flexBox(1, 300px);
+    }
+    &.height-2 {
+      @include flexBox(1, 100px);
+    }
+    &.height-3 {
+      @include flexBox(1, 200px);
+    }
+    &.alignSelfType--auto {
+      align-self: auto;
+    }
+    &.alignSelfType--flex-start {
+      align-self: flex-start;
+    }
+    &.alignSelfType--flex-end {
+      align-self: flex-end;
+    }
+    &.alignSelfType--center {
+      align-self: center;
+    }
+    &.alignSelfType--baseline {
+      align-self: baseline;
+    }
+    &.alignSelfType--stretch {
+      align-self: stretch;
+    }
+  }
+}
+
+.slection-group {
+  display: flex;
+  flex-wrap: nowrap;
+  .slection{
+    margin: 10px;
+  }
+}
+
+

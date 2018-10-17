@@ -1,0 +1,103 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Outside container</mat-card-title>
+    <mat-card-subtitle>flex-direction</mat-card-subtitle>
+  </mat-card-header>
+  <div class="slection-group">
+    <mat-form-field class="slection">
+      <mat-select [(value)]="flexSelection.directionType" placeholder="direction type">
+        <mat-option *ngFor="let type of directionTypes" [value]="type">
+          {{type}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field class="slection">
+      <mat-select [(value)]="flexSelection.wrapType" placeholder="wrap type">
+        <mat-option *ngFor="let type of wrapTypes" [value]="type">
+          {{type}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field class="slection">
+      <mat-select [(value)]="flexSelection.justifyContentType" placeholder="justify-content type">
+        <mat-option *ngFor="let type of justifyContentTypes" [value]="type">
+          {{type}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field class="slection">
+      <mat-select [(value)]="flexSelection.alignItemsType" placeholder="align-items type">
+        <mat-option *ngFor="let type of alignItemsTypes" [value]="type">
+          {{type}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  
+  <div [ngClass]="getTypeClass()" class="flex-container">
+    <div class="block-one">1</div>
+    <div class="block-two">2</div>
+    <div class="block-three">3</div>
+    <div class="block-four">4</div>
+    <div class="block-five">5</div>
+    <div class="block-six">6</div>
+    <div class="block-seven">7</div>
+    <div class="block-eight">8</div>
+  </div>
+</mat-card>
+
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Outside container</mat-card-title>
+    <mat-card-subtitle>align-content</mat-card-subtitle>
+  </mat-card-header>
+  <div class="slection-group">
+    <mat-form-field class="slection">
+      <mat-select [(value)]="alignContentType" placeholder="align-content type">
+        <mat-option *ngFor="let type of alignContentTypes" [value]="type">
+          {{type}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  
+  <div [ngClass]="getAlignContentType()" class="flex-container row-wrap">
+    <div *ngFor="let i of [1,2,3,4,5,6,7,8]" class="block-base">{{i}}</div>
+  </div>
+</mat-card>
+
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Indside element</mat-card-title>
+    <mat-card-subtitle>flex</mat-card-subtitle>
+  </mat-card-header>
+  
+  <div class="flex-container">
+    <div class="flex-1">flex: 1</div>
+    <div class="flex-2">flex: 2</div>
+    <div class="flex-3">flex: 3</div>
+  </div>
+</mat-card>
+
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Indside element</mat-card-title>
+    <mat-card-subtitle>align-self</mat-card-subtitle>
+  </mat-card-header>
+
+  <div class="slection-group">
+    <mat-form-field class="slection">
+      <mat-select [(value)]="alignSelfType" placeholder="align-self type">
+        <mat-option *ngFor="let type of alignSelfTypes" [value]="type">
+          {{type}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  
+  <div class="flex-container row-wrap">
+    <div class="height-1" style="align-self: flex-end">1</div>
+    <div [ngClass]="getAlignSelfType()" class="height-2">2</div>
+    <div class="height-3" style="align-self: center">3</div>
+  </div>
+</mat-card>

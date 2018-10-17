@@ -1,0 +1,167 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Layout Children with 'layout-align'</mat-card-title>
+  </mat-card-header>
+
+  <div class="slection-group">
+    <mat-form-field class="slection">
+      <mat-select [(value)]="layoutDirection" placeholder="Layout direction"
+      (selectionChange)="checkTemplateLog()">
+        <mat-option *ngFor="let direction of layoutDirections" [value]="direction">
+          {{direction}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field class="slection">
+      <mat-select [(value)]="horizontaDirection" placeholder="Horizonta direction"
+      (selectionChange)="checkTemplateLog()">
+        <mat-option *ngFor="let direction of horizontaDirections" [value]="direction">
+          {{direction}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field class="slection">
+      <mat-select [(value)]="verticalDirection" placeholder="Vertical direction"
+      (selectionChange)="checkTemplateLog()">
+        <mat-option *ngFor="let direction of verticalDirections" [value]="direction">
+          {{direction}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  
+  <div class="flex-container"
+  [fxLayout]="layoutDirection"
+  [fxLayoutAlign]="horizontaDirection + ' ' + verticalDirection">
+    <div class="block-1">1</div>
+    <div class="block-2">2</div>
+    <div class="block-3">3</div>
+    <div class="block-4">4</div>
+    <div class="block-5">5</div>
+  </div>
+  <mat-divider></mat-divider>
+  <mat-card-content>
+    <h4>HTML</h4>
+    <p>{{templateLog}}</p>
+  </mat-card-content>
+</mat-card>
+
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Layout Fill</mat-card-title>
+  </mat-card-header>
+  
+  <div class="flex-container">
+    <div fxFill>
+      <div class="block-1" fxFlex="20">fxFlex="20"</div>
+      <div class="block-2" fxFlex="80">fxFlex="80"</div>
+    </div>
+  </div>
+  
+  <mat-divider></mat-divider>
+  <mat-card-content>
+    <h4>HTML</h4>
+    <span>{{fillSampleLog}}</span>
+  </mat-card-content>
+</mat-card>
+
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Layout Gap</mat-card-title>
+  </mat-card-header>
+  <div class="slection-group">
+    <mat-form-field class="slection">
+      <mat-select [(value)]="gapDirection" placeholder="Layout direction">
+        <mat-option *ngFor="let direction of layoutDirections" [value]="direction">
+          {{direction}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div style="margin-bottom:20px">
+    <div fxFlexFill
+        [fxLayout]="gapDirection + ' wrap'"
+        fxLayoutGap="10px grid">
+      <div *ngFor="let index of [1, 2, 3, 4, 5, 6, 7]" fxFlex="25" style="height:50px">
+        <div [class]="'flex-box--' + index" fxFlexFill fxLayoutAlign="center center">
+          {{index}}
+        </div>
+      </div>
+    </div>
+  </div>
+</mat-card>
+
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Flex Attribute Values</mat-card-title>
+  </mat-card-header>
+  <div fxLayout="row wrap">
+    <div class="flex-box--1" fxFlex="none">
+      fxFlex="none"
+    </div>
+    <div class="flex-box--2" fxFlex>
+      fxFlex
+    </div>
+    <div class="flex-box--3" fxFlex="nogrow">
+      fxFlex="nogrow"
+    </div>
+    <div class="flex-box--4" fxFlex="grow">
+      fxFlex="grow"
+    </div>
+    <div class="flex-box--5" fxFlex="initial">
+      fxFlex="initial"
+    </div>
+    <div class="flex-box--6" fxFlex="auto">
+      fxFlex="auto"
+    </div>
+    <div class="flex-box--7" fxFlex="noshrink">
+      fxFlex="noshrink"
+    </div>
+  </div>
+</mat-card>
+
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Flex Offset Values</mat-card-title>
+  </mat-card-header>
+  <div class="offset-container" fxLayout="row">
+    <div class="flex-box--1" fxFlex="66" fxFlexOffset="10">
+      fxFlex="66" fxFlexOffset="10"
+    </div>
+    <div class="flex-box--2" fxFlex>
+      fxFlex
+    </div>
+  </div>
+</mat-card>
+
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Flex with Align-Self</mat-card-title>
+  </mat-card-header>
+  <div class="slection-group">
+    <mat-form-field class="slection">
+      <mat-select [(value)]="fxAlignSelf" placeholder="fxFlexAlign type">
+        <mat-option *ngFor="let direction of fxAlignSelfs" [value]="direction">
+          {{direction}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div class="flex-container" fxLayout="row" fxLayoutAlign="center center">
+    <div class="row-block-1" fxFlex="15">
+      1
+    </div>
+    <div class="row-block-2" fxFlex="15" [fxFlexAlign]="fxAlignSelf" fxLayoutAlign="center center">
+      fxFlexAlign="{{fxAlignSelf}}"
+    </div>
+    <div class="row-block-3" fxFlex="15">
+      2
+    </div>
+    <div class="row-block-4" fxFlex="15">
+      3
+    </div>
+    <div class="row-block-5" fxFlex="15">
+      4
+    </div>
+  </div>
+</mat-card>
